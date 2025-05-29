@@ -13,11 +13,17 @@ pipeline {
             }
         }
 
+        stage("Style"){
+            steps{
+                echo "Checking Style"
+                sh 'npm run eslint'
+            }
+        }
+
         stage("Test"){
             steps{
                 echo "Testing"
                 sh 'npm test'
-                sh 'npm run eslint'
             }
         }
 
