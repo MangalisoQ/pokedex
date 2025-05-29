@@ -9,22 +9,22 @@ pipeline {
         stage("Build"){
             steps{
                 echo 'Building...'
-                npm install
+                sh 'npm install'
             }
         }
 
         stage("Test"){
             steps{
                 echo "Testing"
-                npm test
-                npm run eslint
+                sh 'npm test'
+                sh 'npm run eslint'
             }
         }
 
         stage("Deploy"){
             steps{
                 echo "Deploying"
-                npm run start-prod
+                sh 'npm run start-prod'
             }
         }
 
